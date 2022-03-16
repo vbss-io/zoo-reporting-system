@@ -9,6 +9,7 @@ function getManagers() {
 
 function isManager(id) {
   const managers = getManagers();
+
   return managers.includes(id);
 }
 
