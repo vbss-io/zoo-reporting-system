@@ -14,18 +14,23 @@ const getLocation = () => {
   return location;
 }
 
-function getAnimalMap(options) {
-  if (options = 0) {
+function getAnimalMap(options = 0) {
+  if (options === 0 || !Object.keys(options).includes('includeNames')) {
     return getLocation();
   }
+  return 0;
 }
 
+const test = { sex: 'female' };
+const test2 = { sex: 'female', sorted: true };
+const test3 = { includeNames: true };
 
 
 // console.log(data.species[0])
 // console.log(getAnimals('NE'));
 
-console.log(getAnimalMap());
+// console.log(getAnimalMap());
+console.log(getAnimalMap(test3));
 
 
 module.exports = getAnimalMap;
