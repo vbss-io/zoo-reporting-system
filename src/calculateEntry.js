@@ -15,26 +15,19 @@ function countEntrants(entrants) {
   return entrantsAge;
 }
 
-function calculateEntry(entrants) {
-  // seu código aqui
+function calculateEntry(entrants = 0) {
+  if (entrants === 0 || Object.keys(entrants).length === 0) {
+    return 0;
+  }
+  const entrantsObject = countEntrants(entrants);
 
+  const total = [
+    data.prices.child * entrantsObject.child,
+    data.prices.adult * entrantsObject.adult,
+    data.prices.senior * entrantsObject.senior,
+  ];
+
+  return total.reduce((acc, curl) => acc + curl);
 }
-
-const entrants = [
-  { name: 'lara', age: 5 },
-  { name: 'frederico', age: 5 },
-  { name: 'Pedro', age: 5 },
-  { name: 'Maria', age: 18 },
-  { name: 'Nubia', age: 18 },
-  { name: 'Carlos', age: 50 },
-];
-
-console.log(countEntrants(entrants));
-// console.log(countEntrants());
-
-// const test = entrants.map((element) => element.age);
-
-// console.log(test);
-// console.log(entrantsAge);
 
 module.exports = { calculateEntry, countEntrants };
