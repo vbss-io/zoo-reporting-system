@@ -22,6 +22,13 @@ const getAnimalsName = (day) => {
   return teste.map((element) => element.name);
 };
 
+const getAnimalsDays = (animal) => {
+  const animalInfo = data.species.find((element) => element.name === animal);
+  return animalInfo.availability;
+}
+
+// console.log(getAnimalsDays('lions'));
+
 const getDays = () => {
   const animals = [];
   data.species.forEach((element) => animals.push(element.name));
@@ -57,16 +64,16 @@ function getSchedule(scheduleTarget = 0) {
   if (scheduleTarget === 0 || check) {
     return objMount();
   }
-  // if (getScheduleAnimals().includes(scheduleTarget)) {
-
-  // }
+  if (!getAnimals().includes(scheduleTarget)) {
+    return getAnimalsDays(scheduleTarget);
+  }
   return {
     [scheduleTarget]: objMount()[scheduleTarget],
   };
   // return obj.find((element) => element === scheduleTarget);
 }
 
-// console.log(getSchedule());
+console.log(getSchedule('lions'));
 // console.log(getSchedule('Monday'));
 
 // const test = data.hours.forEach((element) => Object.assign(obj, {
