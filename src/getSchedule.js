@@ -17,35 +17,65 @@ const data = require('../data/zoo_data');
 // },
 // }
 
-const getAnimals = (day) => {
-  const teste = data.species.filter((element) => element.availability.includes(day))
+const getAnimalsName = (day) => {
+  const teste = data.species.filter((element) => element.availability.includes(day));
   return teste.map((element) => element.name);
-}
+};
 
-function getSchedule(scheduleTarget) {
+const getDays = () => {
+  const animals = [];
+  data.species.forEach((element) => animals.push(element.name));
+  return animals;
+};
+
+const getAnimals = () => {
+  const days = [];
+  // const days = []
+  Object.keys(data.hours).forEach((element) => days.push(element));
+  return days;
+};
+
+const objMount = () => {
   const obj = {};
-  for (let item in data.hours) {
+  Object.keys(data.hours).forEach((element) => {
     Object.assign(obj, {
-      [item]: {
-        officeHour: `Open from ${data.hours[item].open}am until ${data.hours[item].close}pm`,
-        exhibition: getAnimals(item),
-        // exhibition: '',
+      [element]: {
+        officeHour: `Open from ${data.hours[element].open}am until ${data.hours[element].close}pm`,
+        exhibition: getAnimalsName(element),
       },
     });
-    if (data.hours[item].open === 0 || data.hours[item].close === 0) {
-      obj[item].officeHour = 'CLOSED';
-      obj[item].exhibition = 'The zoo will be closed!';
+    if (data.hours[element].open === 0 || data.hours[element].close === 0) {
+      obj[element].officeHour = 'CLOSED';
+      obj[element].exhibition = 'The zoo will be closed!';
     }
-  }
+  });
   return obj;
+};
+
+function getSchedule(scheduleTarget = 0) {
+  const check = (!getAnimals().includes(scheduleTarget) && !getDays().includes(scheduleTarget));
+  if (scheduleTarget === 0 || check) {
+    return objMount();
+  }
+  // if (getScheduleAnimals().includes(scheduleTarget)) {
+
+  // }
+  return {
+    [scheduleTarget]: objMount()[scheduleTarget],
+  };
+  // return obj.find((element) => element === scheduleTarget);
 }
 
-console.log(getSchedule());
-
+// console.log(getSchedule());
+// console.log(getSchedule('Monday'));
 
 // const test = data.hours.forEach((element) => Object.assign(obj, {
 //   [element]: {},
 // }))
+
+// Object.keys(data.hours).forEach((element) => console.log(element))
+
+// console.log('test');
 
 // const test = data.hours.forEach((element) => console.log(element))
 // data.forEach((element) => console.log(element.hours))
@@ -60,6 +90,5 @@ console.log(getSchedule());
 
 // console.log(Object.keys(data.hours));
 // console.log(obj);
-
 
 module.exports = getSchedule;
