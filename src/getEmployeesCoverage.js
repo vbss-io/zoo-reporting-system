@@ -1,9 +1,9 @@
-const data = require('../data/zoo_data');
+import zooData from '../data/zoo_data.js';
 
 function getAnimalsOrLocation(ids, key) {
   const currentAnimals = [];
   ids.forEach((id) => {
-    currentAnimals.push(data.species.find((item) => item.id === id)[key]);
+    currentAnimals.push(zooData.species.find((item) => item.id === id)[key]);
   });
   return currentAnimals;
 }
@@ -29,7 +29,7 @@ function getAllEmployees(currentEmployee) {
 }
 
 function getEmployeesCoverage(search = null) {
-  const { employees } = data;
+  const { employees } = zooData;
   if (search) {
     const { name, id } = search;
     const currentEmployee = employees
@@ -46,4 +46,4 @@ function getEmployeesCoverage(search = null) {
   return getAllEmployees(employees);
 }
 
-module.exports = getEmployeesCoverage;
+export default getEmployeesCoverage;

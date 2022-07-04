@@ -1,9 +1,9 @@
-const data = require('../data/zoo_data');
+import zooData from '../data/zoo_data.js';
 
 const allAnimals = () => {
   const animals = {};
 
-  data.species.map((element) => Object.assign(animals, {
+  zooData.species.map((element) => Object.assign(animals, {
     [element.name]: element.residents.length,
   }));
 
@@ -11,7 +11,7 @@ const allAnimals = () => {
 };
 
 const onlySpecie = (specie) => {
-  const animals = data.species.find((element) => element.name === specie);
+  const animals = zooData.species.find((element) => element.name === specie);
   return animals;
 };
 
@@ -31,4 +31,4 @@ function countAnimals(animal = 0) {
   return allAnimals();
 }
 
-module.exports = countAnimals;
+export default countAnimals;

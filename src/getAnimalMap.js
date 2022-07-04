@@ -1,14 +1,13 @@
-const data = require('../data/zoo_data');
+import zooData from '../data/zoo_data.js';
 
 const getAnimalsName = (animal, sex = 0) => {
   const names = [];
   if (sex === 0) {
-    const animals = data.species.find((itemFind) => itemFind.name === animal);
+    const animals = zooData.species.find((itemFind) => itemFind.name === animal);
     animals.residents.forEach((element) => names.push(element.name));
-    console.log(sex);
     return names;
   }
-  const animals = data.species.find((itemFind) => itemFind.name === animal);
+  const animals = zooData.species.find((itemFind) => itemFind.name === animal);
   animals.residents.filter((element) => element.sex === sex).forEach((ele) => names.push(ele.name));
   return names;
 };
@@ -16,12 +15,12 @@ const getAnimalsName = (animal, sex = 0) => {
 const getAnimals = (location, option = false) => {
   const animals = [];
   if (option === false) {
-    data.species.filter((item) => item.location === location).forEach((item) => {
+    zooData.species.filter((item) => item.location === location).forEach((item) => {
       animals.push(item.name);
     });
     return animals;
   }
-  data.species.filter((element) => element.location === location).forEach((element) => {
+  zooData.species.filter((element) => element.location === location).forEach((element) => {
     animals.push(element.name);
   });
   console.log(animals);
@@ -30,7 +29,7 @@ const getAnimals = (location, option = false) => {
 
 const getLocationSorted = (sex) => {
   const location = {};
-  data.species.forEach((element) => {
+  zooData.species.forEach((element) => {
     Object.assign(location, {
       [element.location]: [],
     });
@@ -46,12 +45,12 @@ const getLocationSorted = (sex) => {
 const getLocation = (option = 0, sex = 0) => {
   const location = {};
   if (option === 0) {
-    data.species.forEach((element) => Object.assign(location, {
+    zooData.species.forEach((element) => Object.assign(location, {
       [element.location]: getAnimals(element.location),
     }));
     return location;
   }
-  data.species.forEach((element) => {
+  zooData.species.forEach((element) => {
     Object.assign(location, {
       [element.location]: [],
     });
@@ -76,4 +75,4 @@ function getAnimalMap(options = 0) {
   return getLocation(true, animalSex);
 }
 
-module.exports = getAnimalMap;
+export default getAnimalMap;

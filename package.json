@@ -1,13 +1,10 @@
 {
-  "name": "block9-project-zoo-functions",
+  "name": "Zoo-Reporting-System-with-JavaScript",
   "version": "1.0.0",
-  "description": "Você já usa o GitHub diariamente para desenvolver os exercícios, certo? Agora, para desenvolver os projetos, você deverá seguir as instruções a seguir. Fique atento a cada passo, e se tiver qualquer dúvida, nos envie por _Slack_! #vqv 🚀",
+  "description": "Simulação de um sistema de relatórios de um zoológico utilizando JavaScript",
   "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
+  "type": "module",
   "scripts": {
-    "test": "jest",
     "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json . --ext .js"
   },
   "jest": {
@@ -15,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/betrybe/sd-03-block9-project-zoo-functions.git"
+    "url": "git+https://github.com/vitorbss12/Zoo-Reporting-System-with-JavaScript"
   },
-  "author": "",
+  "author": "Vitor Bastos",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/betrybe/sd-03-block9-project-zoo-functions/issues"
+    "url": "https://github.com/vitorbss12/Zoo-Reporting-System-with-JavaScript/issues"
   },
-  "homepage": "https://github.com/betrybe/sd-03-block9-project-zoo-functions#readme",
+  "homepage": "https://github.com/vitorbss12/Zoo-Reporting-System-with-JavaScript#readme",
   "devDependencies": {
     "eslint-config-trybe-fundamentals": "1.1.0",
     "faker": "5.5.3",

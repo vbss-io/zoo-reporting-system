@@ -1,10 +1,9 @@
-const data = require('../data/zoo_data');
+import zooData from '../data/zoo_data.js';
 
 function getEmployeeByName(name) {
-  // Implementando mesma logica do requisto 2
-  const object = data.employees;
+  const object = zooData.employees;
   const employee = object.find((item) => item.firstName === name || item.lastName === name);
   return (typeof employee !== 'undefined' ? employee : {});
 }
 
-module.exports = getEmployeeByName;
+export default getEmployeeByName;

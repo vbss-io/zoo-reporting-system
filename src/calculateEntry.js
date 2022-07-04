@@ -1,4 +1,4 @@
-const data = require('../data/zoo_data');
+import zooData from '../data/zoo_data.js';
 
 function countEntrants(entrants) {
   const entrantsAge = { child: 0, adult: 0, senior: 0 };
@@ -22,12 +22,12 @@ function calculateEntry(entrants = 0) {
   const entrantsObject = countEntrants(entrants);
 
   const total = [
-    data.prices.child * entrantsObject.child,
-    data.prices.adult * entrantsObject.adult,
-    data.prices.senior * entrantsObject.senior,
+    zooData.prices.child * entrantsObject.child,
+    zooData.prices.adult * entrantsObject.adult,
+    zooData.prices.senior * entrantsObject.senior,
   ];
 
   return total.reduce((acc, curl) => acc + curl);
 }
 
-module.exports = { calculateEntry, countEntrants };
+export default calculateEntry;
