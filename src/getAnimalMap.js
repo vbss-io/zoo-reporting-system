@@ -1,12 +1,13 @@
 import zooData from '../data/zoo_data.js';
 
 const getAnimalsName = (animal, sex = 0) => {
-  const names = [];
   if (sex === 0) {
+    const namesWithoutSex = [];
     const animals = zooData.species.find((itemFind) => itemFind.name === animal);
-    animals.residents.forEach((element) => names.push(element.name));
-    return names;
+    animals.residents.forEach((element) => namesWithoutSex.push(element.name));
+    return namesWithoutSex;
   }
+  const names = [];
   const animals = zooData.species.find((itemFind) => itemFind.name === animal);
   animals.residents.filter((element) => element.sex === sex).forEach((ele) => names.push(ele.name));
   return names;
