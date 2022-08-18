@@ -36,12 +36,12 @@ function getEmployeesCoverage(search = null) {
       .find((employee) => employee.firstName === name
         || employee.lastName === name || employee.id === id);
     const verifiedEmployee = checkEmployee(currentEmployee);
-    return {
+    return [{
       id: verifiedEmployee.id,
       fullName: `${verifiedEmployee.firstName} ${verifiedEmployee.lastName}`,
       species: getAnimalsOrLocation(verifiedEmployee.responsibleFor, 'name'),
       locations: getAnimalsOrLocation(verifiedEmployee.responsibleFor, 'location'),
-    };
+    }];
   }
   return getAllEmployees(employees);
 }
