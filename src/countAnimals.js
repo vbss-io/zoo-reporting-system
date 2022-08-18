@@ -3,7 +3,7 @@ import zooData from '../data/zoo_data.js';
 const allAnimals = () => {
   const animals = {};
 
-  zooData.species.map((element) => Object.assign(animals, {
+  zooData.species.forEach((element) => Object.assign(animals, {
     [element.name]: element.residents.length,
   }));
 
