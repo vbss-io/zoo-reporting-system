@@ -22,12 +22,12 @@ Zoo Reporting System é uma aplicação JavaScript que tem como objetivo gerar r
     - [**getSchedule**](#getschedule)
     - [**getOldestFromFirstSpecies**](#getoldestfromfirstspecies)
     - [**getEmployeesCoverage**](#getemployeescoverage)
-- [**Ferramentas**](#ferramentas)
-    - [**Linter**](#linter)
-    - [**Node**](#node)
 - [**Instruções**](#instruções)
     - [**Instalação**](#instalação)
     - [**Execução**](#execução)
+- [**Ferramentas**](#ferramentas)
+    - [**Linter**](#linter)
+    - [**Node**](#node)
 - [**Observações**](#observações)
 
 # **Funções**
@@ -157,18 +157,6 @@ import getEmployeesCoverage from './src/getEmployeesCoverage.js';
 getEmployeesCoverage({ id: stephanieId });
 ````
 
-# **Ferramentas**
-
-### **Linter**
-
-Este projeto foi desenvolvido utilizando o linter `ESLint` seguindo as boas práticas definidas na [Trybe](https://www.betrybe.com/).
-
-  - Para executar o linter, basta executar o comando `npm run lint`.
-
-### **Node**
-
-Para executar as funções deste projeto, é necessário ter o [Node](https://nodejs.org/en/) instalado.
-
 # **Instruções**
 
 ### **Instalação**
@@ -188,6 +176,21 @@ Para execução pode ser usado extensões como code runner, ou através do coman
 ```
 node "caminho do arquivo"
 ```
+
+# **Ferramentas**
+
+### **Linter**
+
+Este projeto foi desenvolvido utilizando o linter `ESLint` seguindo as boas práticas definidas na [Trybe](https://www.betrybe.com/).
+
+  - Para executar o linter, basta executar o comando:
+````
+npm run lint
+````
+
+### **Node**
+
+Para executar as funções deste projeto, é necessário ter o [Node](https://nodejs.org/en/) instalado.
 
 # **Observações**
 
